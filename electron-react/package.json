@@ -1,0 +1,17 @@
+{
+  "name": "electron-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:main": "electron .",
+    "start:renderer": "cd app/renderer/src/main && npm start "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.2.1",
+    "electron-is-dev": "^2.0.0"
+  }
+}
