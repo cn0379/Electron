@@ -4,14 +4,30 @@
   "description": "",
   "main": "app/main/index.js",
   "scripts": {
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start:renderer\"  \"wait-on http://10.10.2.68:3000 && npm run start:main\"",
     "start:main": "electron .",
     "start:renderer": "cd app/renderer/src/main && npm start "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "wait-on": "^6.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
     "electron": "^13.2.1",
-    "electron-is-dev": "^2.0.0"
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2"
+  },
+  "lint-staged": {
+    "*.{js,tsx}": [
+      "prettier --write",
+      "eslint --cache --fix",
+      "git add"
+    ]
   }
 }
